@@ -109,4 +109,30 @@ TEST_CASE("Testing 4 - simulation class methods") {
         CHECK(test_sim.get_absolute_values().x_ == 1);
         CHECK(test_sim.get_absolute_values().y_ == 1);
     }
+
+    SUBCASE("Testing 4.3 - get_prime_integral") {
+        spcs::d_pair init = {1, 2};
+        spcs::sim_parameters params = {1, 2, 4, 8};
+        spcs::simulation test_sim{init, params};
+        CHECK(test_sim.get_prime_integral() == doctest::Approx(7.30685)); //ci sono altri casi da aggiungere?
+
+        spcs::d_pair init_err = {0, 2};
+        spcs::simulation test_sim_err{init_err, params};
+        CHECK(test_sim_err.get_prime_integral() == doctest::Approx(7.30685)); // init_err should be initialized to {1, 2}
+    }
+
+    SUBCASE("Testing 4.4 - evolvution (and print) method") {
+        spcs::d_pair init = {1, 2};
+        spcs::sim_parameters params = {1, 2, 4, 8};
+        spcs::simulation test_sim{init, params};
+        test_sim.evolve();
+        CHECK(test_sim.get_absolute_values().x_ == doctest::Approx(0.997).epsilon(0.001));
+        CHECK(test_sim.get_absolute_values().y_ == doctest::Approx(1.992).epsilon(0.001));
+        print(test_sim);
+
+        test_sim.evolve();
+        CHECK(test_sim.get_absolute_values().x_ == doctest::Approx(0.994).epsilon(0.001));
+        CHECK(test_sim.get_absolute_values().y_ == doctest::Approx(1.984).epsilon(0.001));
+        print(test_sim);
+    }
 } 

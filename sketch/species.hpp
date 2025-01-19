@@ -12,6 +12,7 @@ namespace spcs{
         d_pair get_absolute_values();
         double get_prime_integral();
         void evolve();
+        d_pair get_equilibrium_point() const;
     };
 
     void print(simulation& sim);

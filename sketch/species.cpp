@@ -13,19 +13,23 @@
 
     double spcs::simulation::get_prime_integral() {
         double H_;
-        H_ = - (parameters.d_ * ln(relative_values.x_)) + (parameters.c_ * relative_values.x_) + (parameters.b_ * relative_values.y_) - (parameters.a_ * ln(relative_values.y_));
+ 
+        H_ = - (parameters.d_ * ln(get_absolute_values().x_)) + (parameters.c_ * get_absolute_values().x_) + (parameters.b_ * get_absolute_values().y_) - (parameters.a_ * ln(get_absolute_values().y_));
         return H_;
     }
-  //parte non controllata
   
     void spcs::simulation::evolve() {
-        d_pair new_values;
-        new_values.x_ = relative_values.x_ + time_step * (relative_values.x_ * (parameters.a_ - parameters.b_ * relative_values.y_));
-        new_values.y_ = relative_values.y_ + time_step * (relative_values.y_ * (parameters.d_ * relative_values.x_ - parameters.c_));
-        relative_values = new_values;
+        double x_new = (get_absolute_values().x_ + (parameters.a_ - parameters.b_ * get_absolute_values().y_) * get_absolute_values().x_ * time_step) / parameters.get_equilibrium_point().x_;
+        double y_new = (get_absolute_values().y_ + (parameters.c_ * get_absolute_values().x_ - parameters.d_) * get_absolute_values().y_ * time_step) / parameters.get_equilibrium_point().y_;
+        relative_values = d_pair{x_new, y_new};
+    }
+
+    spcs::d_pair spcs::simulation::get_equilibrium_point() const {
+        return parameters.get_equilibrium_point();
     }
 
     void spcs::print(simulation& sim) {
         d_pair abs_values = sim.get_absolute_values();
-        std::cout << "Prey: " << abs_values.x_ << " Predators: " << abs_values.y_ << std::endl;
+        std::cout << "Prey number: " << abs_values.x_ << " Predator number: " << abs_values.y_ << std::endl;
+        std::cout << "Prime integral: " << sim.get_prime_integral() << std::endl;
     }

@@ -44,3 +44,5 @@ void spcs::correct_invalid_input(d_pair& init) {
         std::cout << "Warning: one or more initial conditions are invalid. Corrected to default value (1)." << std::endl;
     }
 }
+
+//vanno implementati come int??
