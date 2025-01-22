@@ -42,9 +42,17 @@ spcs::d_pair spcs::graphics::get_rescaling_factor(spcs::simulation& sim) {
     double y_factor = y_eq / 300;
     return {x_factor, y_factor};
 }
+
 spcs::graphics::graph_point::graph_point(spcs::simulation& sim) {
     point.setRadius(1);
     point.setOrigin(1, 1);
     point.setFillColor(sf::Color::Blue);
-    point.setPosition(450, 300);
+    d_pair position = sim.get_absolute_values() / get_rescaling_factor(sim);
+    position.x_ += 30;
+    position.y_ += 30;
+    point.setPosition(position.x_, position.y_);
+}
+
+void spcs::graphics::graph_point::draw(sf::RenderWindow& window) {
+    window.draw(point);
 }
