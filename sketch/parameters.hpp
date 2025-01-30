@@ -16,10 +16,11 @@ struct pair {
     }   
     pair<T> operator/ (const pair<T>& other) const {
         return {x_ / other.x_, y_ / other.y_};
-    } 
-    void operator*= (const pair<T>& other) {
+    } //tenere liberi ed usa maggiormente *= e /=
+    pair& operator*= (const pair<T>& other) {
         x_ *= other.x_;
         y_ *= other.y_;
+        return *this;
     } //per la conversione da relativi ad assoluti nella simulationù
     void operator/= (const pair<T>& other) {
         x_ /= other.x_;

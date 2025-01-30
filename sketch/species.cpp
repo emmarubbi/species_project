@@ -7,11 +7,11 @@
         parameters = simulation_parameters;
     }
 
-    spcs::d_pair spcs::simulation::get_absolute_values() {
+    spcs::d_pair spcs::simulation::get_absolute_values() const {
         return relative_values * parameters.get_equilibrium_point();
     }
 
-    double spcs::simulation::get_prime_integral() {
+    double spcs::simulation::get_prime_integral() const {
         double H_;
  
         H_ = - (parameters.d_ * ln(get_absolute_values().x_)) + (parameters.c_ * get_absolute_values().x_) + (parameters.b_ * get_absolute_values().y_) - (parameters.a_ * ln(get_absolute_values().y_));
@@ -28,8 +28,11 @@
         return parameters.get_equilibrium_point();
     }
 
-    void spcs::print(simulation& sim) {
+    void spcs::print(simulation const& sim) {
         d_pair abs_values = sim.get_absolute_values();
         std::cout << "Prey number: " << abs_values.x_ << " Predator number: " << abs_values.y_ << std::endl;
         std::cout << "Prime integral: " << sim.get_prime_integral() << std::endl;
     }
+
+//solleva exception in ci si resetta la simulazione
+//provare a implementare accumulate

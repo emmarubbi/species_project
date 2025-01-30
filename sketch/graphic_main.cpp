@@ -12,9 +12,8 @@ int main() {
     sf::Clock step_clock;
 
     sf::RenderWindow graph(sf::VideoMode(900, 600), "Level curve animation");
-    graph.clear(sf::Color::Cyan);
     spcs::graphics::graph_axis axis;
-    axis.draw(graph);
+    std::vector<spcs::graphics::graph_point> all_points;
     while (graph.isOpen()) {
         sf::Event event;
         while (graph.pollEvent(event)) {
@@ -24,22 +23,24 @@ int main() {
         }
         if (duration_clock.getElapsedTime().asSeconds() > duration) {
             graph.close();
+            break;
         } //davvero va chiuso?
         
-        
-        while (duration_clock.getElapsedTime().asSeconds() < duration) {
         if (output_clock.getElapsedTime().asSeconds() > output_step) {
             spcs::print(sim);
             output_clock.restart();
         }
         if (step_clock.getElapsedTime().asMilliseconds() > 1) {
             sim.evolve();
-            spcs::graphics::graph_point point(sim);
-            point.draw(graph);
-            graph.display();
+            all_points.push_back(spcs::graphics::graph_point(sim));
             step_clock.restart();
         }
-        }
+        graph.clear(sf::Color::Cyan);
+        axis.draw(graph);
+        std::for_each(all_points.begin(), all_points.end(), [&graph](spcs::graphics::graph_point& point) { 
+            point.draw(graph); 
+            });
+        graph.display();
     }
 
 }

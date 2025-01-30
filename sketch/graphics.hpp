@@ -37,6 +37,7 @@ namespace spcs{
             public:
             graph_point(spcs::simulation& sim);
             void draw(sf::RenderWindow& window);
+            void print_position_for_debug();
         };
     };
 }

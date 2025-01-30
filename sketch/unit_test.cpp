@@ -61,7 +61,7 @@ TEST_CASE("Testing 2 - sim_parameters class") {
 
     SUBCASE("Testing 2.2 - constness of methods") {
         spcs::sim_parameters const_params = {1, 2, 4, 8};
-        spcs::d_pair test_eq = test_params.get_equilibrium_point();
+        test_eq = const_params.get_equilibrium_point();
         CHECK(test_eq.x_ == 2.);
         CHECK(test_eq.y_ == 0.5); //dovrebbe compilare
     }
