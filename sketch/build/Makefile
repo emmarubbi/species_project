@@ -142,6 +142,56 @@ species/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/build
 .PHONY : species/fast
 
+#=============================================================================
+# Target rules for targets named data_analysis
+
+# Build rule for target.
+data_analysis: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_analysis
+.PHONY : data_analysis
+
+# fast build rule for target.
+data_analysis/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/build
+.PHONY : data_analysis/fast
+
+#=============================================================================
+# Target rules for targets named graph
+
+# Build rule for target.
+graph: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 graph
+.PHONY : graph
+
+# fast build rule for target.
+graph/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph.dir/build.make CMakeFiles/graph.dir/build
+.PHONY : graph/fast
+
+data_main.o: data_main.cpp.o
+.PHONY : data_main.o
+
+# target to build an object file
+data_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/data_main.cpp.o
+.PHONY : data_main.cpp.o
+
+data_main.i: data_main.cpp.i
+.PHONY : data_main.i
+
+# target to preprocess a source file
+data_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/data_main.cpp.i
+.PHONY : data_main.cpp.i
+
+data_main.s: data_main.cpp.s
+.PHONY : data_main.s
+
+# target to generate assembly for a file
+data_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/data_main.cpp.s
+.PHONY : data_main.cpp.s
+
 graphic_main.o: graphic_main.cpp.o
 .PHONY : graphic_main.o
 
@@ -196,6 +246,7 @@ input_interface.o: input_interface.cpp.o
 # target to build an object file
 input_interface.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/input_interface.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/input_interface.cpp.o
 .PHONY : input_interface.cpp.o
 
 input_interface.i: input_interface.cpp.i
@@ -204,6 +255,7 @@ input_interface.i: input_interface.cpp.i
 # target to preprocess a source file
 input_interface.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/input_interface.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/input_interface.cpp.i
 .PHONY : input_interface.cpp.i
 
 input_interface.s: input_interface.cpp.s
@@ -212,6 +264,7 @@ input_interface.s: input_interface.cpp.s
 # target to generate assembly for a file
 input_interface.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/input_interface.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/input_interface.cpp.s
 .PHONY : input_interface.cpp.s
 
 parameters.o: parameters.cpp.o
@@ -221,6 +274,7 @@ parameters.o: parameters.cpp.o
 parameters.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/parameters.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/parameters.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/parameters.cpp.o
 .PHONY : parameters.cpp.o
 
 parameters.i: parameters.cpp.i
@@ -230,6 +284,7 @@ parameters.i: parameters.cpp.i
 parameters.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/parameters.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/parameters.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/parameters.cpp.i
 .PHONY : parameters.cpp.i
 
 parameters.s: parameters.cpp.s
@@ -239,6 +294,7 @@ parameters.s: parameters.cpp.s
 parameters.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/parameters.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/parameters.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/parameters.cpp.s
 .PHONY : parameters.cpp.s
 
 species.o: species.cpp.o
@@ -248,6 +304,7 @@ species.o: species.cpp.o
 species.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/species.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/species.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/species.cpp.o
 .PHONY : species.cpp.o
 
 species.i: species.cpp.i
@@ -257,6 +314,7 @@ species.i: species.cpp.i
 species.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/species.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/species.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/species.cpp.i
 .PHONY : species.cpp.i
 
 species.s: species.cpp.s
@@ -266,6 +324,7 @@ species.s: species.cpp.s
 species.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/species.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/species.dir/build.make CMakeFiles/species.dir/species.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_analysis.dir/build.make CMakeFiles/data_analysis.dir/species.cpp.s
 .PHONY : species.cpp.s
 
 unit_test.o: unit_test.cpp.o
@@ -300,8 +359,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... graph"
+	@echo "... data_analysis"
 	@echo "... species"
 	@echo "... tests"
+	@echo "... data_main.o"
+	@echo "... data_main.i"
+	@echo "... data_main.s"
 	@echo "... graphic_main.o"
 	@echo "... graphic_main.i"
 	@echo "... graphic_main.s"

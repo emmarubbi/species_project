@@ -1,4 +1,6 @@
 /home/emmarubbi/species_project/sketch/build/CMakeFiles/tests.dir
 /home/emmarubbi/species_project/sketch/build/CMakeFiles/species.dir
+/home/emmarubbi/species_project/sketch/build/CMakeFiles/data_analysis.dir
+/home/emmarubbi/species_project/sketch/build/CMakeFiles/graph.dir
 /home/emmarubbi/species_project/sketch/build/CMakeFiles/edit_cache.dir
 /home/emmarubbi/species_project/sketch/build/CMakeFiles/rebuild_cache.dir

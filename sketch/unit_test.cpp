@@ -61,7 +61,7 @@ TEST_CASE("Testing 2 - sim_parameters class") {
 
     SUBCASE("Testing 2.2 - constness of methods") {
         spcs::sim_parameters const_params = {1, 2, 4, 8};
-        test_eq = const_params.get_equilibrium_point();
+        spcs::d_pair test_eq = test_params.get_equilibrium_point();
         CHECK(test_eq.x_ == 2.);
         CHECK(test_eq.y_ == 0.5); //dovrebbe compilare
     }
@@ -121,7 +121,7 @@ TEST_CASE("Testing 4 - simulation class methods") {
         CHECK(test_sim_err.get_prime_integral() == doctest::Approx(7.30685)); // init_err should be initialized to {1, 2}
     }
 
-    SUBCASE("Testing 4.4 - evolvution (and print) method") {
+    SUBCASE("Testing 4.4 - evolution (and print) method") {
         spcs::d_pair init = {1, 2};
         spcs::sim_parameters params = {1, 2, 4, 8};
         spcs::simulation test_sim{init, params};
@@ -135,4 +135,13 @@ TEST_CASE("Testing 4 - simulation class methods") {
         CHECK(test_sim.get_absolute_values().y_ == doctest::Approx(1.984).epsilon(0.001));
         print(test_sim);
     }
+
+    SUBCASE("Testing 4.5 - equilibrium point getter") {
+        spcs::d_pair init = {1, 2};
+        spcs::sim_parameters params = {1, 2, 4, 8};
+        spcs::simulation test_sim{init, params};
+        spcs::d_pair eq = test_sim.get_equilibrium_point();
+        CHECK(eq.x_ == 2);
+        CHECK(eq.y_ == 0.5);
+    } //tests about the function are in the parameters section
 } 

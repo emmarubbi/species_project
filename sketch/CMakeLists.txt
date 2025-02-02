@@ -31,6 +31,14 @@ set(SOURCES_SPECIES
     src/../graphic_main.cpp   
     )
 
+# Aggiungi i file sorgenti (data_analysis)
+set(SOURCES_DATA_ANALYSIS
+    src/../parameters.cpp
+    src/../species.cpp 
+    src/../input_interface.cpp
+    src/../data_main.cpp
+    )
+
 #specifica che l'eseguibile binario va nella cartella executables 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/executables)
 
@@ -40,6 +48,7 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 # Crea l'eseguibile
 add_executable(tests ${SOURCES_TESTS})
 add_executable(species ${SOURCES_SPECIES})
+add_executable(data_analysis ${SOURCES_DATA_ANALYSIS})
 
 target_compile_options(tests PRIVATE
     -Wall
@@ -69,5 +78,26 @@ target_compile_options(species PRIVATE
     -fsanitize=address,undefined
 )
 
+target_compile_options(data_analysis PRIVATE
+    -Wall
+    -Wextra
+    -Wpedantic 
+    -Wconversion 
+    -Wsign-conversion 
+    -Wshadow 
+    -Wimplicit-fallthrough 
+    -Wextra-semi 
+    -Wold-style-cast 
+    -D_GLIBCXX_ASSERTIONS 
+    -fsanitize=address,undefined
+)
+
 # Linka SFML
 target_link_libraries(species sfml-graphics sfml-window sfml-system)
+target_link_libraries(data_analysis sfml-system)
+
+# Aggiunge un target personalizzato per eseguire il programma e generare il grafico
+add_custom_target (graph
+    COMMAND data_analysis                         # Esegue il programma per generare dati.txt
+    COMMAND gnuplot ${CMAKE_SOURCE_DIR}/testplot.gp    # Esegue Gnuplot per creare il grafico
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR} )

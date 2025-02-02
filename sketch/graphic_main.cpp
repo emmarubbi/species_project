@@ -42,5 +42,4 @@ int main() {
             });
         graph.display();
     }
-
 }

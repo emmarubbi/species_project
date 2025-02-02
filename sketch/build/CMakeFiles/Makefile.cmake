@@ -51,4 +51,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/tests.dir/DependInfo.cmake"
   "CMakeFiles/species.dir/DependInfo.cmake"
+  "CMakeFiles/data_analysis.dir/DependInfo.cmake"
+  "CMakeFiles/graph.dir/DependInfo.cmake"
   )
