@@ -1,0 +1,4 @@
+/home/emmarubbi/species_project/definitive/build/CMakeFiles/tests.dir
+/home/emmarubbi/species_project/definitive/build/CMakeFiles/analysis.dir
+/home/emmarubbi/species_project/definitive/build/CMakeFiles/edit_cache.dir
+/home/emmarubbi/species_project/definitive/build/CMakeFiles/rebuild_cache.dir
