@@ -9,7 +9,7 @@ set ylabel "Prime integral"
 stats "Species_log.txt" using 4 nooutput  # statistics on prime integral, necessary for rescaling
 max_value = STATS_max  
 set yrange [0:max_value+0.1]
-plot "Species_log.txt" using 1:4 with lines title "Prime integral" # WIP: controlla che i dati siano nelle giuste colonne
+plot "Species_log.txt" using 1:4 with lines title "Prime integral" 
 
-pause -1  # first graph, remains open
+pause mouse close  # first graph, remains open
 

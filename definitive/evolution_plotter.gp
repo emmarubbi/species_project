@@ -7,4 +7,4 @@ set ylabel "Individuals"
 plot "Species_log.txt" using 1:2 with lines title "Preys", \
      "Species_log.txt" using 1:3 with lines title "Predators"
 
-pause -1  # second graph, remains open
+pause mouse close # second graph, remains open
