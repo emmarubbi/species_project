@@ -22,7 +22,7 @@ set(SOURCES_TESTS
     )
 
 # Main executable sources
-set(SOURCES_ANALYSIS
+set(SOURCES_SIMULATION
     src/../parameters.cpp
     src/../simulation.cpp
     src/../input_output.cpp
@@ -36,7 +36,7 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
 # Executable creation
 add_executable(tests ${SOURCES_TESTS})
-add_executable(analysis ${SOURCES_ANALYSIS})
+add_executable(simulation ${SOURCES_SIMULATION})
 
 target_compile_options(tests PRIVATE
     -Wall
@@ -52,7 +52,7 @@ target_compile_options(tests PRIVATE
     -fsanitize=address,undefined
 )
 
-target_compile_options(analysis PRIVATE
+target_compile_options(simulation PRIVATE
     -Wall
     -Wextra
     -Wpedantic 
@@ -68,4 +68,4 @@ target_compile_options(analysis PRIVATE
 
 # SFML linking
 
-target_link_libraries(analysis sfml-system)
+target_link_libraries(simulation sfml-system)

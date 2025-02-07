@@ -151,8 +151,8 @@ TEST_CASE("Testing 4 - data management elements") {
     spcs::update_register(test_register, test_data2);
     CHECK(test_register.size() == 2);
     CHECK(test_register[1].time_passed_ == 2);
-    CHECK(test_register[1].preys_ == doctest::Approx(0.997).epsilon(0.001));
-    CHECK(test_register[1].predators_ == doctest::Approx(1.992).epsilon(0.001));
+    CHECK(test_register[1].preys_ == 0); //0.997, rounded to 0
+    CHECK(test_register[1].predators_ == 1); //1.992, rounded to 1
     CHECK(test_register[1].prime_integral_ == doctest::Approx(7.30685));
   }
 

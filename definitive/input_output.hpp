@@ -21,7 +21,6 @@ struct data_set {
 
   data_set(double time, simulation const &sim_to_read);
 };
-// WIP, bullizza copilot che ci servono dei test!
 
 void print(data_set const &data);
 void update_register(std::vector<data_set> &data_register,
@@ -30,4 +29,4 @@ void write_to_file(std::vector<data_set> const &data_register,
                    std::string const &filename);
 
 void launch_graphic_analyzer();
-}  // namespace spcs
+}

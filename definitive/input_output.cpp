@@ -100,12 +100,10 @@ void spcs::write_to_file(std::vector<data_set> const &data_register,
 void spcs::launch_graphic_analyzer() {
   std::string command1 = "gnuplot ../../prime_plotter.gp";
   std::string command2 = "gnuplot ../../evolution_plotter.gp";
-  std::cout << "Eseguendo: " << command1 << std::endl;
   int status = system(command1.c_str());
   if (status != 0) {
     std::cerr << "Error in launching the prime integral analyzer" << std::endl;
   }
-  std::cout << "Eseguendo: " << command2 << std::endl;
   status = system(command2.c_str());
   if (status != 0) {
     std::cerr << "Error in launching the evolution analyzer" << std::endl;
