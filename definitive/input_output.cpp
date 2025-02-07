@@ -11,7 +11,7 @@ double spcs::ask_for_output_step() {
   double output_step;
   std::cout
       << "The simulation will save (and eventually print) the state of the "
-         "system every x seconds. Please insert x: ";  // inserire default
+         "system every x seconds. Please insert x: ";
   std::cin >> output_step;
   return output_step;
 }
